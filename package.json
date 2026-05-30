@@ -39,13 +39,13 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">=0.20"
+    "node": ">=20"
   },
   "dependencies": {
-    "file-type": "^19.6.0"
+    "file-type": "^21.3.4"
   },
   "peerDependencies": {
-    "amazon-cognito-identity-js": "^4.5.12"
+    "amazon-cognito-identity-js": "^1.24.0"
   },
   "peerDependenciesMeta": {
     "amazon-cognito-identity-js": {
@@ -53,27 +53,27 @@
     }
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
-    "@tsconfig/node20": "^20.1.4",
-    "@types/chai": "^5.0.1",
-    "@types/chai-as-promised": "^8.0.1",
-    "@types/mocha": "^10.0.9",
-    "@types/node": "^20.17.5",
-    "@types/sinon": "^17.0.3",
-    "amazon-cognito-identity-js": "^6.3.12",
-    "chai": "^5.1.2",
-    "chai-as-promised": "^8.0.0",
-    "fetch-mock": "^12.0.2",
-    "lefthook": "^1.8.2",
-    "mocha": "^10.8.2",
-    "nyc": "^17.1.0",
-    "sinon": "^19.0.2",
+    "@biomejs/biome": "^2.4.16",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@tsconfig/node20": "^20.1.9",
+    "@types/chai": "^5.2.3",
+    "@types/chai-as-promised": "^8.0.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.19.41",
+    "@types/sinon": "^21.0.1",
+    "amazon-cognito-identity-js": "^1.24.0",
+    "chai": "^6.2.2",
+    "chai-as-promised": "^8.0.2",
+    "fetch-mock": "^12.6.0",
+    "lefthook": "^2.1.9",
+    "mocha": "^11.7.6",
+    "nyc": "^18.0.0",
+    "sinon": "^22.0.0",
     "ts-node": "^10.9.2",
-    "tsup": "^8.3.5",
-    "tsx": "^4.19.2",
-    "typescript": "^5.6.3"
+    "tsup": "^8.5.1",
+    "tsx": "^4.22.3",
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }

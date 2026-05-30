@@ -1,6 +1,6 @@
 import { URLSearchParams } from "node:url";
-import { FetchError } from "./Connection.js";
 import type { Blob, FetchParams, ServiceDocument } from "./Connection.js";
+import { FetchError } from "./Connection.js";
 import type Database from "./Database.js";
 
 export type FieldValue = string | number | Buffer | null;
@@ -289,23 +289,37 @@ class Table<Batched extends boolean = false> {
         return this.database.fetchBlob(`/${this.name}${path}`, params);
     }
 
+    private static isRepetition(value: FieldValue | Repetition): value is Repetition {
+        return (
+            typeof value === "object" &&
+            value !== null &&
+            !(value instanceof Buffer) &&
+            "repetition" in value
+        );
+    }
+
     private static async compileRowData(
         data: RowData,
     ): Promise<Record<string, string | number | null>> {
         const result: Record<string, string | number | null> = {};
 
         for (let [key, value] of Object.entries(data)) {
-            if (value !== null && typeof value === "object" && !(value instanceof Buffer)) {
+            if (Table.isRepetition(value)) {
                 key = `${key}[${value.repetition}]`;
                 value = value.value;
             }
 
+            let fieldValue: string | number | null;
             if (value instanceof Buffer) {
                 await Table.getMimeType(value);
-                value = value.toString("base64");
+                fieldValue = value.toString("base64");
+            } else if (value === null || typeof value === "string" || typeof value === "number") {
+                fieldValue = value;
+            } else {
+                throw new Error("Unexpected field value");
             }
 
-            result[key] = value;
+            result[key] = fieldValue;
         }
 
         return result;
