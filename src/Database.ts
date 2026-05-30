@@ -1,5 +1,5 @@
-import type { Blob, FetchParams, ServiceDocument } from "./Connection.js";
 import type Connection from "./Connection.js";
+import type { Blob, FetchParams, ServiceDocument } from "./Connection.js";
 import SchemaManager from "./SchemaManager.js";
 import Table from "./Table.js";
 

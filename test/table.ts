@@ -1,6 +1,6 @@
 import { promises as fs } from "node:fs";
 import * as path from "node:path";
-import { URLSearchParams, fileURLToPath } from "node:url";
+import { fileURLToPath, URLSearchParams } from "node:url";
 import { expect, use } from "chai";
 import chaiAsPromised from "chai-as-promised";
 import "mocha";

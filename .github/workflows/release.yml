@@ -13,13 +13,17 @@ permissions:
 jobs:
   release:
     name: Release
+    # Only run on upstream; forks lack npm publish credentials
+    if: github.repository == 'soliantconsulting/fm-odata-client'
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use pnpm
+      - name: Use pnpm 9.x
         uses: pnpm/action-setup@v2
+        with:
+          version: 9
 
       - name: Use Node.js 24.x
         uses: actions/setup-node@v3
